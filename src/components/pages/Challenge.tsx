@@ -1,11 +1,11 @@
 import { RiArrowLeftLine, RiLightbulbLine } from "@remixicon/react";
 import Button from "../atoms/Button";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Hint from "../atoms/Hint";
 
 export default function Challenge() {
   const navigate = useNavigate();
-  const { id } = useParams();
+ //const { id } = useParams();
 
   return (
     <div className="h-full flex flex-col gap-4">
