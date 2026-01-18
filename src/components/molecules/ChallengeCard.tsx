@@ -9,6 +9,7 @@ interface Props {
   duration: string;
   mode: "classic" | "hunt";
   difficulty: "easy" | "medium" | "hard";
+  onClick?: () => void;
 }
 
 export default function ChallengeCard({
@@ -18,9 +19,10 @@ export default function ChallengeCard({
   duration,
   mode,
   difficulty,
+  onClick
 }: Props) {
   return (
-    <div className="flex flex-col rounded-xl overflow-hidden bg-orange-950/10 shrink-0">
+    <button onClick={onClick} className="text-start flex cursor-pointer flex-col rounded-xl overflow-hidden bg-orange-950/10 shrink-0">
       <div className="relative aspect-video rounded-xl overflow-hidden shadow">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -47,6 +49,6 @@ export default function ChallengeCard({
           {teaser}
         </p>
       </div>
-    </div>
+    </button>
   );
 }
