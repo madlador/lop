@@ -1,22 +1,19 @@
+import { sampleChallenges } from "../../lib/db";
 import ChallengeCard from "../molecules/ChallengeCard";
 
 export default function Challenges() {
-  const name = "The Quiet Church";
-  const teaser =
-    "Not all landmarks demand attention. Step away from the noise, follow your senses, and find a place where the city slows down.";
-
   return (
     <div className="h-full flex flex-col gap-4">
-      {/* Challenge Card */}
-
-      <ChallengeCard />
-      <ChallengeCard />
-      <ChallengeCard />
-      <ChallengeCard />
-      <ChallengeCard />
-      <ChallengeCard />
-
-
+      {sampleChallenges.map((c) => (
+        <ChallengeCard
+          name={c.name}
+          teaser={c.teaser}
+          image="/images/church.jpg"
+          difficulty={c.difficulty}
+          duration={c.duration}
+          mode={c.mode}
+        />
+      ))}
     </div>
   );
 }

@@ -21,7 +21,7 @@ export default function ModeBadge({ variant }: Props) {
   const { icon: Icon, label, colors } = variants[variant];
 
   return (
-    <div className={`flex gap-2 rounded-lg items-center px-2 py-1 ${colors}`}>
+    <div className={`flex gap-1 rounded-lg items-center px-2 py-1 ${colors}`}>
       {Icon && <Icon className="w-5 h-5" />}
       <span>{label}</span>
     </div>

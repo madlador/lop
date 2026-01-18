@@ -3,6 +3,7 @@ export interface Challenge {
   name: string;
   teaser: string;
   image: string;
+  duration: string;
   mode: "classic" | "hunt";
   difficulty: "easy" | "medium" | "hard";
   latitude: number;
