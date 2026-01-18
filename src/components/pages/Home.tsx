@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../atoms/Button";
+import { RiQuestionLine } from "@remixicon/react";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -24,7 +25,8 @@ export default function Home() {
           Start a Challenge
         </Button>
         <Button onClick={() => navigate("/about")} className="border-2">
-          How It Works
+          <RiQuestionLine />
+          <span>How It Works</span>
         </Button>
       </div>
     </div>
