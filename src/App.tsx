@@ -19,6 +19,7 @@ export default function App() {
           <Route path="/challenge/:id/verify" element={<Verification />} />
           <Route path="/challenge/:id/reflect" element={<Reflection />} />
           <Route path="/challenge/:id/summary" element={<Summary />} />
+          <Route path="*" element={<p>Good luck with that!</p>}/>
         </Routes>
       </div>
     </BrowserRouter>
