@@ -1,73 +1,24 @@
-# React + TypeScript + Vite
+## The Idea
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The project emerged from a simple question: **Can we make landmark
+discovery in a new city more fun and engaging?** We initially conceived a challenge-based system where users receive a clue about
+a landmark and must locate it, then verify arrival by answering
+location-specific trivia questions.
 
-Currently, two official plugins are available:
+But then we had an insight. We remembered the games we played as children, something similar to hide and seek, where someone would
+hide an object and the only feedback you received was proximity cues:
+hot, cold, colder, burning hot. This mechanic fundamentally shifts
+your mindset from passive following to active exploration and
+discovery.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+So we decided to add a second mode alongside the original deduction-based approach. In this Hunt Mode, users receive a clue
+and hints, and in addition to that they also get a proximity
+indicator that tells them how close they are to the landmark. No
+turn-by-turn directions. No GPS routing. Just the feeling of getting
+warmer or colder as they explore.
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+What we hope this achieves is a psychological shift. Traditional
+navigation apps like Google Maps are inherently passive—you follow the line and reach your destination. But with proximity-only feedback,
+users must actively explore, pay attention to their surroundings,
+notice the streets and buildings around them, and engage with the city
+itself. The game mechanic becomes about discovery rather than efficiency, encouraging serendipitous encounters with unexpected corners of the city while maintaining the challenge and engagement of finding a specific destination.
