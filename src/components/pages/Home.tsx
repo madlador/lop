@@ -1,4 +1,10 @@
+import { useNavigate } from "react-router-dom";
+import Button from "../atoms/Button";
+import { RiQuestionLine } from "@remixicon/react";
+
 export default function Home() {
+  const navigate = useNavigate();
+
   return (
     <div className="flex h-full flex-col">
       <div className="flex flex-col items-center mt-24">
@@ -12,12 +18,16 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col gap-4 mt-auto mb-4">
-        <button className="bg-orange-700 text-white font-semibold p-4 rounded-xl">
+        <Button
+          onClick={() => navigate("/challenges")}
+          className="bg-orange-600 text-white"
+        >
           Start a Challenge
-        </button>
-        <button className="border-2 font-semibold p-4 rounded-xl">
-          How It Works
-        </button>
+        </Button>
+        <Button onClick={() => navigate("/about")} className="border-2">
+          <RiQuestionLine />
+          <span>How It Works</span>
+        </Button>
       </div>
     </div>
   );
