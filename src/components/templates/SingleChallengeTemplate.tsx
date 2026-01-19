@@ -40,7 +40,7 @@ export default function SingleChallengeTemplate({
     getDistance();
   }, [challenge.id]);
 
-  // Update current distance every 2 seconds
+  // Update current distance every 1 seconds
   useEffect(() => {
     const id = setInterval(async () => {
       const tlat = challenge.landmark.location.latitude;
@@ -52,7 +52,7 @@ export default function SingleChallengeTemplate({
       } catch (err) {
         console.log(err);
       }
-    }, 2000);
+    }, 1000);
 
     return () => clearInterval(id);
   }, [challenge.id]);
@@ -92,10 +92,6 @@ export default function SingleChallengeTemplate({
         <RiWalkLine className="shrink-0" />
         <p>"{challenge.teaser}"</p>
       </div>
-
-      <span>distance: {totalDistance} m</span>
-      <span>current: {currentDistance} m</span>
-      <span>percent: {percentage}</span>
 
       {/* Render proximity indicator only if challenge.type is hunt */}
       {challenge.mode === "hunt" && (
