@@ -46,7 +46,7 @@ export default function SingleChallengeTemplate({ challenge }: { challenge: Chal
       {/* Render proximity indicator only if challenge.type is hunt */}
       {challenge.mode === "hunt" && (
         <div className='flex justify-center items-center'>
-          <Indicator percentage={60} />
+          <Indicator percentage={70} />
         </div>
       )}
 

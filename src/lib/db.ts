@@ -29,7 +29,7 @@ export const sampleChallenges: Challenge[] = [
     difficulty: "easy",
     mode: "classic",
     landmark: {
-      image: "",
+      image: "/images/church.jpg",
       location: { latitude: 45.6452, longitude: 13.7768 },
     },
     hints: [
@@ -50,14 +50,14 @@ export const sampleChallenges: Challenge[] = [
   },
   {
     id: 2,
-    name: "The Quiet Church",
+    name: "Chasing Fresh Water",
     teaser:
-      "Not all landmarks demand attention. Step away from the noise, follow your senses, and find a place where the city slows down.",
-    duration: "2-3 min",
-    difficulty: "easy",
-    mode: "classic",
+      "Fresh water once entered the city through a single point. Find it by moving through the old town and listening to how the city changes around you.",
+    duration: "6-8 min",
+    difficulty: "medium",
+    mode: "hunt",
     landmark: {
-      image: "",
+      image: "/images/fountain.webp",
       location: { latitude: 45.6452, longitude: 13.7768 },
     },
     hints: [],
