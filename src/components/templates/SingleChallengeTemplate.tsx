@@ -19,6 +19,7 @@ export default function SingleChallengeTemplate({
 
   const [totalDistance, setTotalDistance] = useState<number | null>(null);
   const [currentDistance, setCurrentDistance] = useState<number | null>(null);
+  const [percentage, setPercentage] = useState<number>(0);
 
   // Load visible hints count from localStorage on mount
   useEffect(() => {
@@ -50,8 +51,17 @@ export default function SingleChallengeTemplate({
       }
     }, 2000);
 
+    const id2 = setInterval(() => {
+      if (totalDistance !== null && currentDistance !== null) {
+        setPercentage((1 - currentDistance / totalDistance) * 100);
+        return;
+      }
+    }, 2000);
 
-    return () => clearInterval(id);
+    return () => {
+      clearInterval(id);
+      clearInterval(id2);
+    };
   }, [challenge.id]);
 
   // Show next hint and update localStorage
@@ -88,7 +98,7 @@ export default function SingleChallengeTemplate({
       {/* Render proximity indicator only if challenge.type is hunt */}
       {challenge.mode === "hunt" && (
         <div className="flex justify-center items-center">
-          <Indicator percentage={70} />
+          <Indicator percentage={percentage} />
         </div>
       )}
 
