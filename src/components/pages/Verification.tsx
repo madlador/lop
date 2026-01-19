@@ -21,10 +21,10 @@ export default function Verification() {
   }
 
   return (
-    <div className="h-full flex flex-col">
+    <div className="min-h-full h-full flex flex-col pb-8">
       <Button
         onClick={() => navigate(`/challenge/${id}`)}
-        className="border w-fit"
+        className="w-fit text-gray-700"
       >
         <RiArrowLeftLine />
         <span>Go Back</span>
@@ -37,7 +37,7 @@ export default function Verification() {
 
       <div className="mt-8">
         <div className="bg-orange-950/10 px-4 py-8 rounded-xl flex justify-center">
-          <p>What detail best describes the place you reached?</p>
+          <p className="text-center">What detail best describes the place you reached?</p>
         </div>
 
         <div className="mt-8 flex flex-col gap-4">

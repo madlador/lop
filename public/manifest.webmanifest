@@ -1,0 +1,19 @@
+{
+  "name": "Lost on Purpose",
+  "short_name": "LoP",
+  "description": "Learn a city by getting lost on purpose. Discover hidden gems and navigate with confidence.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#1f2937",
+  "background_color": "#ffffff",
+  "categories": ["travel", "lifestyle", "navigation"],
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
