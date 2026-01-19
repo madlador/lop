@@ -52,12 +52,10 @@ export default function SingleChallengeTemplate({
     }, 2000);
 
     const id2 = setInterval(() => {
-      if (totalDistance !== null && currentDistance !== null) {
+      if (totalDistance && currentDistance) {
         //setPercentage();
         const p = coveredDistancePercentage(totalDistance, currentDistance, 30);
         setPercentage(p)
-        
-        return;
       }
     }, 2000);
 
