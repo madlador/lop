@@ -21,7 +21,7 @@ export default function Home() {
         <Button onClick={() => navigate("/challenges")} variant="primary">
           Start a Challenge
         </Button>
-        <Button onClick={() => navigate("/about")} className="border-2">
+        <Button onClick={() => navigate("/about")} className="text-gray-700">
           <RiQuestionLine />
           <span>How It Works</span>
         </Button>

@@ -8,7 +8,7 @@ export default function About() {
   const navigate = useNavigate();
 
   return (
-    <div className="h-full flex flex-col">
+    <div className="h-full flex flex-col min-h-full pb-8">
       <div>
         <h1 className="text-3xl font-medium">How It Works</h1>
         <p className="text-gray-700">
@@ -17,7 +17,7 @@ export default function About() {
       </div>
 
       {/* Items explaining about app */}
-      <div className="mt-16 flex flex-col gap-8">
+      <div className="mt-16 flex flex-col gap-4">
         <ItemAbout
           icon={
             <IconWrapper>

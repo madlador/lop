@@ -22,7 +22,7 @@ export default function Button({
   return (
     <button
       onClick={onClick}
-      className={`${className} ${variantClasses[variant]} font-semibold p-4 rounded-xl flex justify-center gap-2`}
+      className={`${className} ${variantClasses[variant]} cursor-pointer font-semibold p-4 rounded-xl flex justify-center gap-2`}
     >
       {children}
     </button>
