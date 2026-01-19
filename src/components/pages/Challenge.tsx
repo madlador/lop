@@ -2,7 +2,7 @@ import { RiArrowLeftLine } from "@remixicon/react";
 import { useNavigate, useParams } from "react-router-dom";
 import { sampleChallenges } from "../../lib/db";
 import Button from "../atoms/Button";
-import SingleChallengeTemplate from "../molecules/SingleChallengeTemplate";
+import SingleChallengeTemplate from "../templates/SingleChallengeTemplate";
 
 export default function Challenge() {
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ export default function Challenge() {
       <div>
         <Button
           onClick={() => navigate("/challenges")}
-          className='border font-semibold w-fit px-6 py-4'>
+          className='border font-medium w-fit px-6 py-4'>
           <RiArrowLeftLine />
           <span>Abandon</span>
         </Button>
@@ -34,7 +34,8 @@ export default function Challenge() {
       <SingleChallengeTemplate challenge={challenge} />
 
       <Button
-        className='bg-orange-600 text-orange-50 mt-auto'
+        className='mt-auto'
+        variant="primary"
         onClick={() => navigate(`/challenge/${challenge.id}/verify`)}>
         I Think I'm There
       </Button>

@@ -18,10 +18,7 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col gap-4 mt-auto mb-4">
-        <Button
-          onClick={() => navigate("/challenges")}
-          className="bg-orange-600 text-white"
-        >
+        <Button onClick={() => navigate("/challenges")} variant="primary">
           Start a Challenge
         </Button>
         <Button onClick={() => navigate("/about")} className="border-2">

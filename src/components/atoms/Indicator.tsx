@@ -26,7 +26,7 @@ export default function Indicator({ percentage }: { percentage: number }) {
 
   return (
     <div
-      className="flex flex-col rounded-xl p-8 items-center gap-4 shadow"
+      className="flex flex-col rounded-xl p-8 items-center gap-4 shadow w-full"
       style={{ backgroundColor: bg }}
     >
       <span className="text-2xl font-medium" style={{ color: accent }}>
