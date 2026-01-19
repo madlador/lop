@@ -88,9 +88,28 @@ export const sampleChallenges: Challenge[] = [
       image: "/images/fountain.webp",
       location: { latitude: 45.545470863803565, longitude: 13.729784281987486 },
     },
-    hints: [],
-    options: [],
-    correct: { id: 2, option: "" },
-    reflectionQuestion: "",
+    hints: [
+      {
+        id: 1,
+        hint: "Water was brought into the city through an aqueduct that ended at a fountain.",
+      },
+      {
+        id: 2,
+        hint: "The fountain is located near the intersection of several streets, not far from the main square.",
+      },
+      {
+        id: 3,
+        hint: "Look for a fountain that features sculptures and is situated in a lively part of the old town.",
+      },
+    ],
+    options: [
+      { id: 1, option: "A simple stone basin" },
+      { id: 2, option: "A large fountain with sculptures" },
+      { id: 3, option: "A modern water feature" },
+      { id: 4, option: "A natural spring" },
+    ],
+    correct: { id: 2, option: "A large fountain with sculptures" },
+    reflectionQuestion:
+      "What do you think this fountain symbolizes for the city of Koper?",
   },
 ];

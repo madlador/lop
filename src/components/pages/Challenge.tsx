@@ -1,6 +1,7 @@
 import { RiArrowLeftLine } from "@remixicon/react";
 import { useNavigate, useParams } from "react-router-dom";
 import { sampleChallenges } from "../../lib/db";
+import { abandonChallenge } from "../../lib/utils/active_challenge";
 import Button from "../atoms/Button";
 import SingleChallengeTemplate from "../templates/SingleChallengeTemplate";
 
@@ -21,11 +22,15 @@ export default function Challenge() {
   }
 
   return (
-    <div className='min-h-full flex flex-col gap-4 pb-8'>
+    <div className="min-h-full flex flex-col gap-4 pb-8">
       <div>
         <Button
-          onClick={() => navigate("/challenges")}
-          className='w-fit text-gray-700'>
+          onClick={() => {
+            abandonChallenge(challenge.id);
+            navigate("/challenges");
+          }}
+          className="w-fit text-gray-700"
+        >
           <RiArrowLeftLine />
           <span>Abandon</span>
         </Button>
@@ -34,9 +39,10 @@ export default function Challenge() {
       <SingleChallengeTemplate challenge={challenge} />
 
       <Button
-        className='mt-auto'
+        className="mt-auto"
         variant="primary"
-        onClick={() => navigate(`/challenge/${challenge.id}/verify`)}>
+        onClick={() => navigate(`/challenge/${challenge.id}/verify`)}
+      >
         I Think I'm There
       </Button>
     </div>
