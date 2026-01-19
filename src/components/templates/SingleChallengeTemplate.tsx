@@ -8,7 +8,7 @@ import {
 import Button from "../atoms/Button";
 import Hint from "../atoms/Hint";
 import Indicator from "../atoms/Indicator";
-import { distanceCurrentToDestination } from "../../lib/utils/location";
+import { coveredDistancePercentage, distanceCurrentToDestination } from "../../lib/utils/location";
 
 export default function SingleChallengeTemplate({
   challenge,
@@ -19,8 +19,9 @@ export default function SingleChallengeTemplate({
 
   const [totalDistance, setTotalDistance] = useState<number | null>(null);
   const [currentDistance, setCurrentDistance] = useState<number | null>(null);
+  const [percentage, setPercentage] = useState<number>(0);
 
-  // Load visible hints count from localStorage on mount
+  // Load visible hints and get initial total distance
   useEffect(() => {
     const stored = getVisibleHintsFromStorage(challenge.id);
     setVisibleHintsCount(stored);
@@ -37,7 +38,10 @@ export default function SingleChallengeTemplate({
       }
     };
     getDistance();
+  }, [challenge.id]);
 
+  // Update current distance every 2 seconds
+  useEffect(() => {
     const id = setInterval(async () => {
       const tlat = challenge.landmark.location.latitude;
       const tlon = challenge.landmark.location.longitude;
@@ -50,9 +54,16 @@ export default function SingleChallengeTemplate({
       }
     }, 2000);
 
-
     return () => clearInterval(id);
   }, [challenge.id]);
+
+  // Calculate percentage when distances change
+  useEffect(() => {
+    if (totalDistance && currentDistance) {
+      const p = coveredDistancePercentage(totalDistance, currentDistance, 30);
+      setPercentage(p);
+    }
+  }, [totalDistance, currentDistance]);
 
   // Show next hint and update localStorage
   const showNextHint = () => {
@@ -79,16 +90,17 @@ export default function SingleChallengeTemplate({
 
       <div className="flex gap-1 bg-orange-950/10 rounded-xl p-2 text-lg">
         <RiWalkLine className="shrink-0" />
-        <p>“{challenge.teaser}”</p>
+        <p>"{challenge.teaser}"</p>
       </div>
 
       <span>distance: {totalDistance} m</span>
-      <span>current: {currentDistance}</span>
+      <span>current: {currentDistance} m</span>
+      <span>percent: {percentage}</span>
 
       {/* Render proximity indicator only if challenge.type is hunt */}
       {challenge.mode === "hunt" && (
         <div className="flex justify-center items-center">
-          <Indicator percentage={70} />
+          <Indicator percentage={percentage} />
         </div>
       )}
 
