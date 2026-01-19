@@ -4,6 +4,7 @@ import type { Challenge } from "../../lib/db";
 import { getVisibleHintsFromStorage, saveVisibleHintsToStorage } from "../../lib/utils/hints";
 import Button from "../atoms/Button";
 import Hint from "../atoms/Hint";
+import Indicator from "../atoms/Indicator";
 
 export default function SingleChallengeTemplate({ challenge }: { challenge: Challenge }) {
   const [visibleHintsCount, setVisibleHintsCount] = useState(0);
@@ -45,8 +46,7 @@ export default function SingleChallengeTemplate({ challenge }: { challenge: Chal
       {/* Render proximity indicator only if challenge.type is hunt */}
       {challenge.mode === "hunt" && (
         <div className='flex justify-center items-center'>
-          {/* //TODO: Put the Proximity Indicator component here */}
-          <p>Proximity Indicator should be here!</p>
+          <Indicator percentage={60} />
         </div>
       )}
 
