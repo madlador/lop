@@ -23,7 +23,7 @@ export default function ChallengeCard({
 }: Props) {
   return (
     <button onClick={onClick} className="text-start flex cursor-pointer flex-col rounded-xl overflow-hidden bg-orange-950/10 shrink-0">
-      <div className="relative aspect-video rounded-xl overflow-hidden shadow">
+      <div className="relative aspect-video rounded-xl overflow-hidden shadow-xl">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${image})` }}
