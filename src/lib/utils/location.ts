@@ -47,7 +47,7 @@ export async function distanceCurrentToDestination(
 }
 
 export function coveredDistancePercentage(totalDistance: number, currentDistance: number, delta: number = 0) {
-  const percentOfTotal = (currentDistance + delta) / totalDistance;
+  const percentOfTotal = (currentDistance - delta) / totalDistance;
   const percentage = (1 - percentOfTotal) * 100;
   return Math.max(0, Math.min(percentage, 100));
 }
