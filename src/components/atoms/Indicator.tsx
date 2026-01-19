@@ -10,7 +10,7 @@ export default function Indicator({ percentage }: { percentage: number }) {
     return Math.floor(p / 10)
   };
 
-  console.log(labelIndex(clamped));
+  //console.log(labelIndex(clamped));
   const labels = [
     "Frozen 🧊",
     "Sub-zero ❄️",

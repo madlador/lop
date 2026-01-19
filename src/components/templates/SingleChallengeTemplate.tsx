@@ -8,7 +8,7 @@ import {
 import Button from "../atoms/Button";
 import Hint from "../atoms/Hint";
 import Indicator from "../atoms/Indicator";
-import { distanceCurrentToDestination } from "../../lib/utils/location";
+import { coveredDistancePercentage, distanceCurrentToDestination } from "../../lib/utils/location";
 
 export default function SingleChallengeTemplate({
   challenge,
@@ -53,7 +53,10 @@ export default function SingleChallengeTemplate({
 
     const id2 = setInterval(() => {
       if (totalDistance !== null && currentDistance !== null) {
-        setPercentage((1 - currentDistance / totalDistance) * 100);
+        //setPercentage();
+        const p = coveredDistancePercentage(totalDistance, currentDistance, 30);
+        setPercentage(p)
+        
         return;
       }
     }, 2000);
@@ -93,7 +96,8 @@ export default function SingleChallengeTemplate({
       </div>
 
       <span>distance: {totalDistance} m</span>
-      <span>current: {currentDistance}</span>
+      <span>current: {currentDistance} m</span>
+      <span>percent: {percentage}</span>
 
       {/* Render proximity indicator only if challenge.type is hunt */}
       {challenge.mode === "hunt" && (
