@@ -2,6 +2,7 @@ import { RiArrowLeftLine } from "@remixicon/react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { sampleChallenges } from "../../lib/db";
+import { finishChallengeTimer } from "../../lib/utils/timing";
 import Button from "../atoms/Button";
 import VerificationOption from "../atoms/VerificationOption";
 
@@ -26,9 +27,10 @@ export default function Verification() {
     if (
       selectedOptionId !== undefined &&
       challenge.correct.id === selectedOptionId
-    )
+    ) {
+      finishChallengeTimer(challenge.id);
       navigate(`/challenge/${id}/reflect`);
-    else navigate(`/challenge/${id}`);
+    } else navigate(`/challenge/${id}`);
   };
 
   return (

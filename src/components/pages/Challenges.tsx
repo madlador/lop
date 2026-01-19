@@ -1,8 +1,9 @@
 import { RiArrowLeftLine } from "@remixicon/react";
+import { useNavigate } from "react-router-dom";
 import { sampleChallenges } from "../../lib/db";
+import { startChallengeTimer } from "../../lib/utils/timing";
 import Button from "../atoms/Button";
 import ChallengeCard from "../molecules/ChallengeCard";
-import { useNavigate } from "react-router-dom";
 
 export default function Challenges() {
   const navigate = useNavigate();
@@ -32,7 +33,10 @@ export default function Challenges() {
           difficulty={c.difficulty}
           duration={c.duration}
           mode={c.mode}
-          onClick={() => navigate(`/challenge/${c.id}`)}
+          onClick={() => {
+            startChallengeTimer(c.id);
+            navigate(`/challenge/${c.id}`);
+          }}
         />
       ))}
     </div>
