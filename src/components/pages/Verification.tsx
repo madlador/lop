@@ -22,7 +22,10 @@ export default function Verification() {
 
   return (
     <div className="h-full flex flex-col">
-      <Button onClick={() => navigate(`/challenge/${id}`)} className="border w-fit">
+      <Button
+        onClick={() => navigate(`/challenge/${id}`)}
+        className="border w-fit"
+      >
         <RiArrowLeftLine />
         <span>Go Back</span>
       </Button>
@@ -44,6 +47,7 @@ export default function Verification() {
         </div>
       </div>
 
+      {/* todo: When pressed we check if it is correct option, YES -> go to next page which is reflection page, if NO -> go back to the challenge screen */}
       <Button
         onClick={() => navigate(`/challenge/${id}/reflect`)}
         variant="primary"
