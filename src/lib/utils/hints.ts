@@ -1,4 +1,4 @@
-const HINTS_STORAGE_KEY = "challenge-hints";
+export const HINTS_STORAGE_KEY = "challenge-hints";
 
 // Helper functions for localStorage
 export const getVisibleHintsFromStorage = (challengeId: number): number => {

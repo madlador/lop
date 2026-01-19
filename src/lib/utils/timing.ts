@@ -1,4 +1,6 @@
-const TIMING_STORAGE_KEY = "challenge-timing";
+import { clearActiveChallenge, setActiveChallenge } from "./active_challenge";
+
+export const TIMING_STORAGE_KEY = "challenge-timing";
 
 // Challenge timing helper functions
 export const startChallengeTimer = (challengeId: number): void => {
@@ -10,6 +12,8 @@ export const startChallengeTimer = (challengeId: number): void => {
       endTime: null,
     };
     localStorage.setItem(TIMING_STORAGE_KEY, JSON.stringify(timingData));
+
+    setActiveChallenge(challengeId);
   } catch (error) {
     console.error("Error starting challenge timer:", error);
   }
@@ -23,6 +27,9 @@ export const finishChallengeTimer = (challengeId: number): void => {
       if (timingData[challengeId]) {
         timingData[challengeId].endTime = Date.now();
         localStorage.setItem(TIMING_STORAGE_KEY, JSON.stringify(timingData));
+
+        // Clear active challenge
+        clearActiveChallenge();
       }
     }
   } catch (error) {
