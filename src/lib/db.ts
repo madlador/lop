@@ -30,7 +30,7 @@ export const sampleChallenges: Challenge[] = [
     mode: "classic",
     landmark: {
       image: "/images/church.jpg",
-      location: { latitude: 45.6452, longitude: 13.7768 },
+      location: { latitude: 45.54777670203097, longitude: 13.731747892457468 },
     },
     hints: [
       {
@@ -58,7 +58,7 @@ export const sampleChallenges: Challenge[] = [
     mode: "hunt",
     landmark: {
       image: "/images/fountain.webp",
-      location: { latitude: 45.6452, longitude: 13.7768 },
+      location: { latitude: 45.545470863803565, longitude: 13.729784281987486 },
     },
     hints: [],
   },
