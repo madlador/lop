@@ -27,7 +27,7 @@ export const sampleChallenges: Challenge[] = [
       "Not all landmarks demand attention. Step away from the noise, follow your senses, and find a place where the city slows down.",
     duration: "2-3 min",
     difficulty: "easy",
-    mode: "classic",
+    mode: "hunt",
     landmark: {
       image: "/images/church.jpg",
       location: { latitude: 45.54777670203097, longitude: 13.731747892457468 },

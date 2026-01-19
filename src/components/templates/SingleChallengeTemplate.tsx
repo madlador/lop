@@ -8,10 +8,7 @@ import {
 import Button from "../atoms/Button";
 import Hint from "../atoms/Hint";
 import Indicator from "../atoms/Indicator";
-import {
-  distance,
-  distanceCurrentToDestination,
-} from "../../lib/utils/location";
+import { distanceCurrentToDestination } from "../../lib/utils/location";
 
 export default function SingleChallengeTemplate({
   challenge,
