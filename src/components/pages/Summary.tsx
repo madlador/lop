@@ -22,7 +22,7 @@ export default function Summary() {
 
   return (
     <div className="flex flex-col h-full gap-8">
-      <div className="flex flex-col items-center gap-4 mt-24">
+      <div className="flex flex-col items-center gap-4 mt-16">
         <img src="/logo.svg" alt="Reflection star" className="w-32 h-32" />
         <div className="flex flex-col items-center gap-2">
           <h1 className="text-3xl font-medium">Challenge Completed</h1>

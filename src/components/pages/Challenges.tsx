@@ -9,8 +9,8 @@ export default function Challenges() {
 
   return (
     <div className="h-full flex flex-col gap-4">
-      <div className="flex flex-col gap-4 mb-4">
-        <Button onClick={() => navigate("/")} className="border font-medium w-fit px-6 py-4">
+      <div className="flex flex-col gap-2">
+        <Button onClick={() => navigate("/")} className="w-fit text-gray-700">
           <RiArrowLeftLine />
           <span>Back</span>
         </Button>

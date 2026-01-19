@@ -21,11 +21,11 @@ export default function Challenge() {
   }
 
   return (
-    <div className='h-full flex flex-col gap-4'>
+    <div className='min-h-full flex flex-col gap-4 pb-8'>
       <div>
         <Button
           onClick={() => navigate("/challenges")}
-          className='border font-medium w-fit px-6 py-4'>
+          className='w-fit text-gray-700'>
           <RiArrowLeftLine />
           <span>Abandon</span>
         </Button>

@@ -8,7 +8,7 @@ export default function About() {
   const navigate = useNavigate();
 
   return (
-    <div className="h-full flex flex-col">
+    <div className="h-full flex flex-col min-h-full pb-8">
       <div>
         <h1 className="text-3xl font-medium">How It Works</h1>
         <p className="text-gray-700">
