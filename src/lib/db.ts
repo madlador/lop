@@ -8,6 +8,11 @@ export interface Hint {
   hint: string;
 }
 
+export interface Option {
+  id: number;
+  option: string;
+}
+
 export interface Challenge {
   id: number;
   name: string;
@@ -17,6 +22,9 @@ export interface Challenge {
   difficulty: "easy" | "medium" | "hard";
   mode: "classic" | "hunt"; // classic only clue, hunt => hot/cold
   hints: Hint[];
+  correct: Option;
+  options: Option[];
+  reflectionQuestion: string;
 }
 
 export const sampleChallenges: Challenge[] = [
@@ -47,6 +55,26 @@ export const sampleChallenges: Challenge[] = [
         hint: "Look for a small church near a quieter crossing of streets, slightly away from Titov trg.",
       },
     ],
+    options: [
+      {
+        id: 1,
+        option: "A tall bell tower",
+      },
+      {
+        id: 2,
+        option: "A richly decorated facade",
+      },
+      {
+        id: 3,
+        option: "A small, simple stone church",
+      },
+      {
+        id: 4,
+        option: "A modern glass building",
+      },
+    ],
+    correct: { id: 3, option: "A small, simple stone church." },
+    reflectionQuestion: "From here, which direction do you think Titov trg is?",
   },
   {
     id: 2,
@@ -61,5 +89,8 @@ export const sampleChallenges: Challenge[] = [
       location: { latitude: 45.545470863803565, longitude: 13.729784281987486 },
     },
     hints: [],
+    options: [],
+    correct: { id: 2, option: "" },
+    reflectionQuestion: "",
   },
 ];
