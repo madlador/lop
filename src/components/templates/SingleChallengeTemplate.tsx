@@ -21,7 +21,7 @@ export default function SingleChallengeTemplate({
   const [currentDistance, setCurrentDistance] = useState<number | null>(null);
   const [percentage, setPercentage] = useState<number>(0);
 
-  // Load visible hints count from localStorage on mount
+  // Load visible hints and get initial total distance
   useEffect(() => {
     const stored = getVisibleHintsFromStorage(challenge.id);
     setVisibleHintsCount(stored);
@@ -38,7 +38,10 @@ export default function SingleChallengeTemplate({
       }
     };
     getDistance();
+  }, [challenge.id]);
 
+  // Update current distance every 2 seconds
+  useEffect(() => {
     const id = setInterval(async () => {
       const tlat = challenge.landmark.location.latitude;
       const tlon = challenge.landmark.location.longitude;
@@ -51,19 +54,16 @@ export default function SingleChallengeTemplate({
       }
     }, 2000);
 
-    const id2 = setInterval(() => {
-      if (totalDistance && currentDistance) {
-        //setPercentage();
-        const p = coveredDistancePercentage(totalDistance, currentDistance, 30);
-        setPercentage(p)
-      }
-    }, 2000);
-
-    return () => {
-      clearInterval(id);
-      clearInterval(id2);
-    };
+    return () => clearInterval(id);
   }, [challenge.id]);
+
+  // Calculate percentage when distances change
+  useEffect(() => {
+    if (totalDistance && currentDistance) {
+      const p = coveredDistancePercentage(totalDistance, currentDistance, 30);
+      setPercentage(p);
+    }
+  }, [totalDistance, currentDistance]);
 
   // Show next hint and update localStorage
   const showNextHint = () => {
@@ -90,7 +90,7 @@ export default function SingleChallengeTemplate({
 
       <div className="flex gap-1 bg-orange-950/10 rounded-xl p-2 text-lg">
         <RiWalkLine className="shrink-0" />
-        <p>“{challenge.teaser}”</p>
+        <p>"{challenge.teaser}"</p>
       </div>
 
       <span>distance: {totalDistance} m</span>
