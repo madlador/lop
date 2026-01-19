@@ -59,3 +59,18 @@ export const formatTimeSpent = (milliseconds: number): string => {
     return `${seconds}s`;
   }
 };
+
+// Check if a challenge is completed
+export const isChallengeCompleted = (challengeId: number): boolean => {
+  try {
+    const stored = localStorage.getItem(TIMING_STORAGE_KEY);
+    if (stored) {
+      const timingData = JSON.parse(stored);
+      const challenge = timingData[challengeId];
+      return !!(challenge?.startTime && challenge?.endTime);
+    }
+  } catch (error) {
+    console.error("Error checking challenge completion:", error);
+  }
+  return false;
+};

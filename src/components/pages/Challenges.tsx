@@ -27,6 +27,7 @@ export default function Challenges() {
       {sampleChallenges.map((c) => (
         <ChallengeCard
           key={c.id}
+          challengeId={c.id}
           name={c.name}
           teaser={c.teaser}
           image={c.landmark.image}
