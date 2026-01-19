@@ -1,14 +1,14 @@
-interface Landmark {
+export interface Landmark {
   image: string;
   location: { latitude: number; longitude: number };
 }
 
-interface Hint {
+export interface Hint {
   id: number;
   hint: string;
 }
 
-interface Challenge {
+export interface Challenge {
   id: number;
   name: string;
   teaser: string;
