@@ -37,7 +37,7 @@ export default function Reflection() {
         <p className="italic">{challenge.reflectionQuestion}</p>
       </div>
 
-      <Button variant="primary" className="mt-auto">
+      <Button onClick={() => navigate(`/challenge/${id}/summary`)} variant="primary" className="mt-auto">
         Finish Challenge
       </Button>
     </div>
